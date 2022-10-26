@@ -1,9 +1,12 @@
 import React from 'react';
+import BrandCarousal from '../../shared/BrandCarousal/BrandCarousal';
+import Header from '../../shared/Header/Header';
 
 const Home = () => {
     return (
         <div>
-            <h2>this is Home Page</h2>
+            <Header></Header>
+            <BrandCarousal></BrandCarousal>
         </div>
     );
 };
