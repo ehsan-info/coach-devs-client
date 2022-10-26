@@ -11,11 +11,10 @@ const LeftSideNav = () => {
             .then(data => setCategories(data));
     }, [])
     return (
-        <div>
-            <h3>All categories {categories.length}</h3>
-            <div>
+        <div className=''>
+            <div className='mt-4'>
                 {
-                    categories.map(category => <p key={category.id} category={category}><Link to={`/category/${category.id}`}>{category.name}</Link></p>)
+                    categories.map(category => <p key={category.id} category={category}><Link to={`/courses/${category.id}`}>{category.name}</Link></p>)
                 }
             </div>
         </div>

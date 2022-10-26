@@ -22,7 +22,7 @@ const FeaturedCourse = ({ course }) => {
                             {
                                 details.length > 200 ?
                                     <>
-                                        {details.slice(0, 150) + '...'}<Link>See Details</Link>
+                                        {details.slice(0, 150) + '...'}<Link to={`/course/${_id}`}>See Details</Link>
                                     </>
                                     :
                                     <></>
