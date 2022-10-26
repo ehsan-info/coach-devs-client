@@ -2,8 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <h3>This is footer part</h3>
+        <div className='bg-dark p-5 mt-4'>
+            <div className='d-flex justify-content-between'>
+                <p className='text-light'>Theme By coachDevs</p>
+                <p className='text-light'>Copyright © 2012 - All Right Reserved - coachDevs Inc</p>
+            </div>
         </div>
     );
 };

@@ -10,14 +10,15 @@ import Registration from "../pages/Registration/Registration";
 export const routes = createBrowserRouter([
     {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/course')
     },
     {
-        path: '/courses-list',
+        path: '/',
         element: <Main></Main>,
         children: [
             {
-                path: '/courses-list',
+                path: '/courses',
                 element: <Courses></Courses>
             },
             {
