@@ -2,21 +2,34 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 import logo from '../../assets/logo/logo.png'
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
     return (
         <div>
             <Navbar>
                 <Container>
-                    <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                            Signed in as: <a href="#login">Mark Otto</a>
-                        </Navbar.Text>
+                        {
+                            user?.uid ?
+                                <Navbar.Text>
+                                    Signed in as: <span>{user?.email}</span>
+                                </Navbar.Text>
+                                :
+                                <FaUser></FaUser>
+                        }
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -28,14 +41,29 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><Link to='/courses/07'>Courses</Link></Nav.Link>
+                            <Nav.Link><Link to='/'>Home</Link></Nav.Link>
+                            <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
                             <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
+                            <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
-                            </Nav.Link>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <Link>
+                                            {
+                                                user?.photoURL &&
+                                                <Image roundedCircle style={{ height: '40px' }} src={user?.photoURL} />
+                                            }
+                                        </Link>
+                                        <Button onClick={handleLogOut} className='ms-2' variant="outline-dark"><Link to='/courses'>Logout</Link></Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Button className='ms-2' variant="outline-dark"><Link to='/login'>Login</Link></Button>
+                                        <Button className='ms-2' variant="outline-dark"><Link to='/registration'>Register</Link></Button>
+                                    </>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
