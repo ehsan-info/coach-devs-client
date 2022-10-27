@@ -11,7 +11,7 @@ const Home = () => {
         <div>
             <Header></Header>
             <BrandCarousal></BrandCarousal>
-            <h2 className='text-center mt-3' style={{ color: '#72D5CD' }}>Top Courses</h2>
+            <h2 className='text-center mt-3' style={{ color: '#72D5CD' }}>Featured Courses</h2>
             <Container>
                 <Row>
 
