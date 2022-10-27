@@ -107,6 +107,11 @@ const Registration = () => {
                                 <Form.Label>Confirm Password</Form.Label>
                                 <Form.Control type="password" name='confirmPassword' placeholder="Confirm Password" required />
                             </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicError">
+                                <Form.Text className="text-dark font-monospace">
+                                    Already have an account ? <span><Link to='/login'>Login Here !!!</Link></span>
+                                </Form.Text>
+                            </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check
                                     type="checkbox"

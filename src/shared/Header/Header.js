@@ -9,8 +9,15 @@ import { Button } from 'react-bootstrap';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { useState } from 'react';
+import { useRef } from 'react';
+import './Header.css';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [show, setShow] = useState(false);
+    const target = useRef(null);
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -50,13 +57,20 @@ const Header = () => {
                             {
                                 user?.uid ?
                                     <>
-                                        <Link>
+                                        <Button variant="light" className='' ref={target} onClick={() => setShow(!show)}>
                                             {
                                                 user?.photoURL &&
                                                 <Image roundedCircle style={{ height: '40px' }} src={user?.photoURL} />
                                             }
-                                        </Link>
-                                        <Button onClick={handleLogOut} className='ms-2' variant="outline-dark"><Link to='/courses'>Logout</Link></Button>
+                                        </Button>
+                                        <Overlay target={target.current} show={show} placement="right">
+                                            {(props) => (
+                                                <Tooltip id="overlay-example" {...props}>
+                                                    {user?.displayName}
+                                                </Tooltip>
+                                            )}
+                                        </Overlay>
+                                        <Button onClick={handleLogOut} className='ms-2' variant="outline-dark">Logout</Button>
                                     </>
                                     :
                                     <>
