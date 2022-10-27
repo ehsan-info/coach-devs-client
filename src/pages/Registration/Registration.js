@@ -84,6 +84,7 @@ const Registration = () => {
         <Container className='mt-4'>
             <Row>
                 <Col lg='8'>
+                    <h2 className='text-primary'>Registration !!!</h2>
                     <div>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicName">

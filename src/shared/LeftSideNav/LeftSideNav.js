@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const LeftSideNav = () => {
@@ -14,7 +15,7 @@ const LeftSideNav = () => {
         <div className=''>
             <div className='mt-4'>
                 {
-                    categories.map(category => <p key={category.id} category={category}><Link to={`/courses/${category.id}`}>{category.name}</Link></p>)
+                    categories.map(category => <p key={category.id} category={category}><Link to={`/courses/${category.id}`}><Button variant='light'>{category.name}</Button></Link></p>)
                 }
             </div>
         </div>

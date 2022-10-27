@@ -12,7 +12,7 @@ const Course = () => {
     const { _id, category_id, course_name, details, image_url, price, rating, total_view, trainer_info } = singleCourse[0];
     return (
         <div>
-            <div className="bg-image shadow-2-strong intro-background mb-4">
+            <div className="bg-image shadow-2-strong intro-background my-4">
                 <div className="mask">
                     <div className="container d-flex align-items-center justify-content-center text-center mask-2">
                         <div className="text-white">
@@ -22,14 +22,14 @@ const Course = () => {
                     </div>
                 </div>
             </div>
-            <div className='d-flex gap-3'>
+            <div className='d-lg-flex d-sm-block gap-3'>
                 <div>
                     <Image fluid src={image_url} />
                     <h2>{course_name}</h2>
                     <p>{details}</p>
                 </div>
                 <div>
-                    <Card style={{ width: '20rem' }}>
+                    <Card className='course-right-info'>
                         <Card.Img variant="top" src={trainer_info.img} />
                         <Card.Body>
                             <Card.Title>{trainer_info.name}</Card.Title>

@@ -41,6 +41,7 @@ const Login = () => {
     }
     return (
         <>
+            <h2 className='text-primary'>Login !!!</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

@@ -14,6 +14,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { useState } from 'react';
 import { useRef } from 'react';
 import './Header.css';
+import LeftSideNav from '../LeftSideNav/LeftSideNav';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const [show, setShow] = useState(false);
@@ -28,7 +29,7 @@ const Header = () => {
             <Navbar>
                 <Container>
                     <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Collapse className="justify-content-end text-sm-center d-sm-block">
                         {
                             user?.uid ?
                                 <Navbar.Text>
@@ -48,10 +49,10 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-                            <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
-                            <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
-                            <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
+                            <Nav.Link><Link to='/'><Button variant="light">Home</Button></Link></Nav.Link>
+                            <Nav.Link><Link to='/courses'><Button variant="light">Courses</Button></Link></Nav.Link>
+                            <Nav.Link><Link to='/blog'><Button variant="light">Blog</Button></Link></Nav.Link>
+                            <Nav.Link><Link to='/faq'><Button variant="light">FAQ</Button></Link></Nav.Link>
                         </Nav>
                         <Nav>
                             {
@@ -79,6 +80,9 @@ const Header = () => {
                                     </>
                             }
                         </Nav>
+                        <div className='d-lg-none'>
+                            <LeftSideNav></LeftSideNav>
+                        </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
