@@ -15,7 +15,7 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/course')
+        loader: () => fetch('https://coach-devs-server.vercel.app/course')
     },
     {
         path: '/',
@@ -24,17 +24,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/07`)
+                loader: ({ params }) => fetch(`https://coach-devs-server.vercel.app/courses/07`)
             },
             {
                 path: '/courses/:id',
                 element: <Courses></Courses>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://coach-devs-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/course/:id',
                 element: <Course></Course>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://coach-devs-server.vercel.app/course/${params.id}`)
             },
             {
                 path: '/login',
@@ -59,7 +59,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
+                loader: ({ params }) => fetch(`https://coach-devs-server.vercel.app/checkout/${params.id}`)
             }
         ]
     },
